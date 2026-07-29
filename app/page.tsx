@@ -4,15 +4,11 @@ import { CoverArt, PlayFab, SectionHeader, Eyebrow } from "@/components/Ui";
 import { ARTISTS, ALBUMS } from "@/lib/data";
 
 const TRENDING_SONGS = [
-  { title: "Ouaga Freestyle", artist: "Ismaël Traoré", plays: "2.1M", dur: "3:12" },
-  { title: "Sahel Nights (feat. Nafi)", artist: "Aïcha Konaté", plays: "1.8M", dur: "3:45" },
-  { title: "Golden Hour", artist: "Fatou Zerbo", plays: "980K", dur: "2:58" },
+  { title: "Moove", artist: "Roddy BG", plays: "0", dur: "3:00" },
 ];
 
 const EVENTS = [
   { day: "14", month: "AOÛT", title: "VMG Live Night", city: "Ouagadougou, BF" },
-  { day: "22", month: "AOÛT", title: "Tournée Harmattan", city: "Bobo-Dioulasso, BF" },
-  { day: "05", month: "SEPT", title: "Festival Sahel Sons", city: "Abidjan, CI" },
 ];
 
 export default function HomePage() {
@@ -30,23 +26,23 @@ export default function HomePage() {
               {heroAlbum.title}
             </h1>
             <p className="text-white/65 max-w-[460px] leading-relaxed mb-7">
-              Le nouvel album d&apos;<strong className="text-white font-semibold">{heroAlbum.artist}</strong> —
-              douze titres entre afropop et soul du Sahel, produit à Ouagadougou.
+              Le nouveau single d&apos;<strong className="text-white font-semibold">{heroAlbum.artist}</strong> —
+              disponible maintenant sur VMG.
             </p>
             <div className="flex items-center gap-5">
               <Link href={`/albums/${heroAlbum.slug}`} className="flex items-center gap-3">
                 <PlayFab />
-                <span className="text-sm font-semibold">Écouter l&apos;album</span>
+                <span className="text-sm font-semibold">Écouter le single</span>
               </Link>
               <Link
                 href={`/albums/${heroAlbum.slug}`}
                 className="text-sm font-semibold px-5 py-3 rounded-full border border-white/15 text-white/65"
               >
-                Voir le tracklist
+                Voir les détails
               </Link>
             </div>
           </div>
-          <CoverArt size={220} radius={18} seed={0} />
+          <CoverArt size={220} radius={18} seed={0} src={heroAlbum.coverUrl} />
         </div>
       </section>
 
@@ -91,7 +87,7 @@ export default function HomePage() {
           {ALBUMS.map((a, i) => (
             <Link key={a.id} href={`/albums/${a.slug}`} className="w-[168px] flex-shrink-0">
               <div className="relative">
-                <CoverArt size={168} seed={i} />
+                <CoverArt size={168} seed={i} src={a.coverUrl} />
                 <span className="absolute top-2.5 left-2.5 text-[10px] font-bold bg-ink/75 text-gold-light px-2 py-1 rounded-full">
                   {a.type}
                 </span>
@@ -113,7 +109,7 @@ export default function HomePage() {
               className={`flex items-center gap-4 px-5 py-3.5 ${i < TRENDING_SONGS.length - 1 ? "border-b border-white/10" : ""}`}
             >
               <span className="font-display text-sm text-white/40 w-5">{i + 1}</span>
-              <CoverArt size={44} radius={8} seed={i} />
+              <CoverArt size={44} radius={8} seed={i} src={ALBUMS[0]?.coverUrl} />
               <div className="flex-1 min-w-0">
                 <div className="text-sm font-semibold truncate">{s.title}</div>
                 <div className="text-xs text-white/40">{s.artist}</div>
