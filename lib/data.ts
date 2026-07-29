@@ -20,78 +20,38 @@ export type Album = {
   isrc: string;
   upc: string;
   releaseDate: string;
+  coverUrl?: string;
   tracklist: { title: string; duration: string }[];
 };
 
 export const ARTISTS: Artist[] = [
   {
-    id: "VMG-A014",
-    slug: "aicha-konate",
-    name: "Aïcha Konaté",
-    genres: ["Afropop", "Soul"],
+    id: "VMG-A001",
+    slug: "roddy-bg",
+    name: "Roddy BG",
+    genres: ["Afropop"],
     country: "Burkina Faso",
     verified: true,
-    bio: "Figure montante de l'afropop ouest-africaine, Aïcha Konaté mêle rythmes traditionnels burkinabè et productions modernes. Signée VMG depuis 2024.",
-    streams: "4.2M",
-    followers: "312K",
-  },
-  {
-    id: "VMG-A027",
-    slug: "ismael-traore",
-    name: "Ismaël Traoré",
-    genres: ["Hip-Hop"],
-    country: "Mali",
-    verified: true,
-    bio: "Rappeur et parolier malien connu pour ses freestyles incisifs et sa plume engagée.",
-    streams: "2.8M",
-    followers: "198K",
-  },
-  {
-    id: "VMG-A031",
-    slug: "nafi-sawadogo",
-    name: "Nafi Sawadogo",
-    genres: ["R&B"],
-    country: "Burkina Faso",
-    verified: false,
-    bio: "Voix R&B émergente, Nafi Sawadogo explore les thèmes de l'amour et de l'exil.",
-    streams: "1.6M",
-    followers: "94K",
+    bio: "Roddy BG est un artiste burkinabè passionné par la musique, qui porte les couleurs de VMG avec un son afropop moderne et authentique.",
+    streams: "0",
+    followers: "0",
   },
 ];
 
 export const ALBUMS: Album[] = [
   {
     id: "AL-001",
-    slug: "sahel-nights",
-    title: "Sahel Nights",
-    artistSlug: "aicha-konate",
-    artist: "Aïcha Konaté",
-    type: "Album",
-    isrc: "BF-VMG-26-00114",
-    upc: "6 12345 78912 3",
-    releaseDate: "2026-06-12",
+    slug: "moove",
+    title: "Moove",
+    artistSlug: "roddy-bg",
+    artist: "Roddy BG",
+    type: "Single",
+    isrc: "BF-VMG-26-00001",
+    upc: "6 12345 00001 1",
+    releaseDate: "2026-07-29",
+    coverUrl: "/covers/IMG_3792.jpeg",
     tracklist: [
-      { title: "Sahel Nights (Intro)", duration: "1:42" },
-      { title: "Harmattan Wind", duration: "3:21" },
-      { title: "Ouaga la belle", duration: "3:05" },
-      { title: "Golden Hour", duration: "2:58" },
-      { title: "Sahel Nights (feat. Nafi)", duration: "3:45" },
-    ],
-  },
-  {
-    id: "AL-002",
-    slug: "harmattan",
-    title: "Harmattan",
-    artistSlug: "nafi-sawadogo",
-    artist: "Nafi Sawadogo",
-    type: "EP",
-    isrc: "BF-VMG-26-00098",
-    upc: "6 12345 78905 5",
-    releaseDate: "2026-05-19",
-    tracklist: [
-      { title: "Harmattan Intro", duration: "4:01" },
-      { title: "Loin de toi", duration: "3:12" },
-      { title: "Retour", duration: "3:40" },
+      { title: "Moove", duration: "3:00" },
     ],
   },
 ];
