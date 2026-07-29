@@ -1,6 +1,6 @@
 # VMG — Voomle Music Group
 
-Écosystème digital officiel du label VMG. Next.js 14 (App Router) + Tailwind CSS + Firebase.
+Écosystème digital officiel du label VMG. Next.js 14 (App Router) + Tailwind CSS + Firebase. 
 
 ## Pages incluses dans ce squelette
 
