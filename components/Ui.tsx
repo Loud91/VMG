@@ -11,11 +11,23 @@ export function CoverArt({
   size = 168,
   radius = 14,
   seed = 0,
+  src,
 }: {
   size?: number;
   radius?: number;
   seed?: number;
+  src?: string;
 }) {
+  if (src) {
+    return (
+      <img
+        src={src}
+        alt=""
+        className="flex-shrink-0 object-cover"
+        style={{ width: size, height: size, borderRadius: radius }}
+      />
+    );
+  }
   return (
     <div
       className="flex items-center justify-center flex-shrink-0"
