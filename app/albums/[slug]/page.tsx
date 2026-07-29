@@ -15,7 +15,7 @@ export default function AlbumPage({ params }: { params: { slug: string } }) {
   return (
     <main className="max-w-[1240px] mx-auto px-6 py-14">
       <div className="flex gap-9 items-start flex-wrap mb-12">
-        <CoverArt size={220} radius={18} seed={0} />
+        <CoverArt size={220} radius={18} seed={0} src={album.coverUrl} />
         <div className="flex-1 min-w-[320px]">
           <Eyebrow>{album.type} · Sortie le {album.releaseDate}</Eyebrow>
           <h1 className="font-display text-4xl font-medium mb-2">{album.title}</h1>
