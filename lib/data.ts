@@ -49,7 +49,7 @@ export const ALBUMS: Album[] = [
     isrc: "BF-VMG-26-00001",
     upc: "6 12345 00001 1",
     releaseDate: "2026-07-29",
-    coverUrl: "/covers/IMG_3792.jpeg",
+    coverUrl: "/covers/IMG_3746.jpeg",
     tracklist: [
       { title: "Moove", duration: "3:00" },
     ],
