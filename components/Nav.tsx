@@ -2,7 +2,9 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { Search, Menu, X } from "lucide-react";
+import { useAuth } from "@/lib/auth-context";
 
 const LINKS = [
   { href: "/", label: "Accueil" },
@@ -27,6 +29,14 @@ function Mark() {
 
 export default function Nav() {
   const [open, setOpen] = useState(false);
+  const { user, logout } = useAuth();
+  const router = useRouter();
+
+  async function handleLogout() {
+    await logout();
+    router.push("/");
+  }
+
   return (
     <header className="sticky top-0 z-40 backdrop-blur-xl bg-ink/75 border-b border-white/10">
       <div className="max-w-[1240px] mx-auto px-6 py-4 flex items-center justify-between">
@@ -45,9 +55,24 @@ export default function Nav() {
         </div>
         <div className="flex items-center gap-4">
           <Search size={18} className="text-white/60 cursor-pointer" />
-          <button className="hidden md:block text-sm font-semibold px-4 py-2 rounded-full bg-gradient-to-b from-gold-light to-gold text-[#1A1405]">
-            Connexion
-          </button>
+          {user ? (
+            <div className="hidden md:flex items-center gap-3">
+              <span className="text-xs text-white/50">{user.email}</span>
+              <button
+                onClick={handleLogout}
+                className="text-sm font-semibold px-4 py-2 rounded-full border border-white/15 text-white/70"
+              >
+                Déconnexion
+              </button>
+            </div>
+          ) : (
+            <Link
+              href="/login"
+              className="hidden md:block text-sm font-semibold px-4 py-2 rounded-full bg-gradient-to-b from-gold-light to-gold text-[#1A1405]"
+            >
+              Connexion
+            </Link>
+          )}
           <Menu size={20} className="md:hidden cursor-pointer" onClick={() => setOpen(true)} />
         </div>
       </div>
@@ -69,6 +94,25 @@ export default function Nav() {
                 {l.label}
               </Link>
             ))}
+            {user ? (
+              <button
+                onClick={() => {
+                  handleLogout();
+                  setOpen(false);
+                }}
+                className="mt-6 text-sm font-semibold px-5 py-3 rounded-full border border-white/15 text-white/80"
+              >
+                Déconnexion ({user.email})
+              </button>
+            ) : (
+              <Link
+                href="/login"
+                onClick={() => setOpen(false)}
+                className="mt-6 text-sm font-semibold px-5 py-3 rounded-full bg-gradient-to-b from-gold-light to-gold text-[#1A1405] text-center"
+              >
+                Connexion
+              </Link>
+            )}
           </div>
         </div>
       )}
